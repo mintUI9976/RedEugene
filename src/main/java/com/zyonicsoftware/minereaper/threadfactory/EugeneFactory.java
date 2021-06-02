@@ -4,12 +4,14 @@ import com.zyonicsoftware.minereaper.exception.RedExceptionHandler;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class EugeneFactory {
 
     private String factoryName = "RedEugeneFactory";
     private boolean daemon = false;
     private int priority = Thread.NORM_PRIORITY;
+    private final AtomicInteger count = new AtomicInteger(0);
 
     public EugeneFactory setName(@NotNull final String factoryName) {
         this.factoryName = factoryName;
@@ -29,12 +31,28 @@ public class EugeneFactory {
     public ThreadFactory build() {
         return runnable -> {
             final Thread thread = new Thread(runnable);
+            this.count.getAndIncrement();
             thread.setDaemon(EugeneFactory.this.daemon);
             thread.setPriority(EugeneFactory.this.priority);
-            thread.setName(EugeneFactory.this.factoryName);
+            thread.setName(EugeneFactory.this.factoryName + "-" + this.count.get());
             thread.setUncaughtExceptionHandler(new RedExceptionHandler());
             return thread;
         };
     }
 
+    public String getFactoryName() {
+        return this.factoryName;
+    }
+
+    public boolean isDaemon() {
+        return this.daemon;
+    }
+
+    public int getPriority() {
+        return this.priority;
+    }
+
+    public int getCount() {
+        return this.count.get();
+    }
 }
