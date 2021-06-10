@@ -9,10 +9,9 @@
 
 package com.zyonicsoftware.minereaper.enums;
 
-public enum EugeneFactoryPriority {
+public enum EugeneRunnableState {
 
-    NORM,
-    MIN,
-    MAX,
+    SCHEDULE,
+    EXECUTOR,
 
 }

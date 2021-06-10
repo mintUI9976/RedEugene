@@ -1,52 +1,54 @@
+/*
+ *
+ *  * Copyright (c) 2021. Zyonic Software - Niklas Griese
+ *  * This File, its contents and by extention the corresponding project is property of Zyonic Software and may not be used without explicit permission to do so.
+ *  *
+ *  * contact(at)zyonicsoftware.com
+ *
+ */
+
 package com.zyonicsoftware.minereaper.objects;
 
+import com.zyonicsoftware.minereaper.enums.EugeneJobState;
+import com.zyonicsoftware.minereaper.enums.EugeneRunnableState;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 public class EugeneJob {
 
     private final String name;
     private volatile long execute;
-    private Thread thread;
+    private volatile String lastWorkThread;
     private final TimeUnit timeunit;
     private final long period;
-    private final Runnable runnable;
+    private EugeneJobState eugeneJobState;
+    private final EugeneRunnableState eugeneRunnableState;
+    private Future<?> future;
 
-    /**
-     * @param name     sets the name of the created job
-     * @param runnable sets the created runnable to cancel it later
-     */
 
-    public EugeneJob(@NotNull final String name, final TimeUnit timeunit, final long period, @NotNull final Runnable runnable) {
+    public EugeneJob(@NotNull final String name, @NotNull final EugeneRunnableState eugeneRunnableState, final TimeUnit timeunit, final long period) {
         this.name = name;
+        this.eugeneRunnableState = eugeneRunnableState;
         this.timeunit = timeunit;
         this.period = period;
-        this.runnable = runnable;
     }
 
     /**
-     * @param thread will be set via runnable injection
+     * @param lastWorkThread will be set via runnable injection
      */
 
-    public void setThread(@NotNull final Thread thread) {
-        this.thread = thread;
+    public void setLastWorkThread(final String lastWorkThread) {
+        this.lastWorkThread = lastWorkThread;
     }
 
     /**
      * @return the current thread of the job
      */
 
-    public Thread getThread() {
-        return this.thread;
-    }
-
-    /**
-     * @return the current runnable of the job
-     */
-
-    public Runnable getRunnable() {
-        return this.runnable;
+    public String getLastWorkThread() {
+        return this.lastWorkThread;
     }
 
     /**
@@ -89,8 +91,28 @@ public class EugeneJob {
         return this.period;
     }
 
+    public EugeneJobState getEugeneJobState() {
+        return this.eugeneJobState;
+    }
+
+    public void setEugeneJobState(final EugeneJobState eugeneJobState) {
+        this.eugeneJobState = eugeneJobState;
+    }
+
+    public Future<?> getFuture() {
+        return this.future;
+    }
+
+    public void setFuture(final Future<?> future) {
+        this.future = future;
+    }
+
+    public EugeneRunnableState getEugeneRunnableState() {
+        return this.eugeneRunnableState;
+    }
+
     @Override
     public String toString() {
-        return "@EugeneJob" + " | Job:" + this.name + " | Count:" + this.execute + " | Thread:" + this.thread.getName() + " | Timeunit:" + this.timeunit + " | Period:" + this.period;
+        return "@EugeneJob" + " | Job:" + this.name + " | State:" + this.eugeneJobState.name() + " | Count:" + this.execute + " | LastWorkThread:" + this.lastWorkThread + " | Timeunit:" + this.timeunit + " | Period:" + this.period;
     }
 }

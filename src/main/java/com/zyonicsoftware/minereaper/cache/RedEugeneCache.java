@@ -1,3 +1,12 @@
+/*
+ *
+ *  * Copyright (c) 2021. Zyonic Software - Niklas Griese
+ *  * This File, its contents and by extention the corresponding project is property of Zyonic Software and may not be used without explicit permission to do so.
+ *  *
+ *  * contact(at)zyonicsoftware.com
+ *
+ */
+
 package com.zyonicsoftware.minereaper.cache;
 
 import com.zyonicsoftware.minereaper.objects.EugeneJob;
@@ -15,11 +24,15 @@ public class RedEugeneCache {
 
     public static void put(@NotNull final String eugeneJobName, @NotNull final EugeneJob eugeneJob) {
         RedEugeneCache.eugeneJobMap.put(eugeneJobName, eugeneJob);
-        RedEugeneCache.cachedEugeneJobMap.put(eugeneJobName, eugeneJob);
     }
 
     public static void remove(@NotNull final String eugeneJobName) {
-        RedEugeneCache.eugeneJobMap.remove(eugeneJobName);
+        if (!RedEugeneCache.cachedEugeneJobMap.containsKey(eugeneJobName)) {
+            RedEugeneCache.cachedEugeneJobMap.put(eugeneJobName, RedEugeneCache.eugeneJobMap.remove(eugeneJobName));
+        } else {
+            RedEugeneCache.cachedEugeneJobMap.merge(eugeneJobName, RedEugeneCache.eugeneJobMap.remove(eugeneJobName), (eugeneJob, eugeneJob2) -> eugeneJob2);
+        }
+
     }
 
     public static Optional<EugeneJob> getLive(@NotNull final String eugeneJobName) {
