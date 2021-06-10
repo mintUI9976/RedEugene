@@ -2,7 +2,7 @@
 <div align="center">
   <h2>An simple job system based of ScheduledThreadPoolExecutor</h2>
   <hr />
-  <a href="https://github.com/mintUI9976/RedEugene/releases"><img src="https://img.shields.io/github/v/release/mintUI9976/RedEugene?include_prereleases&color=red" /></a>
+  <a href="https://gitlab.zyonicsoftware.com/mint9976/redeugene/-/packages"><img src="https://img.shields.io/badge/release-v0.2.4-9cf" /></a>
   <a href="https://github.com/mintUI9976/RedEugene"><img src="https://img.shields.io/github/languages/code-size/mintUI9976/RedEugene?color=orange" /></a>
   <a href="https://github.com/mintUI9976/RedEugene"><img src="https://img.shields.io/tokei/lines/github/mintUI9976/RedEugene?color=yellow" /></a>
   <a href="https://github.com/mintUI9976/RedEugene/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mintUI9976/RedEugene" /></a>
@@ -42,29 +42,44 @@
 ````java
 <repositories>
 <repository>
-<id>jitpack.io</id>
-<url>https://jitpack.io</url>
+<id>gitlab-maven</id>
+<url>https://gitlab.zyonicsoftware.com/api/v4/projects/164/packages/maven</url>
 </repository>
 </repositories>
+
+<distributionManagement>
+<repository>
+<id>gitlab-maven</id>
+<url>https://gitlab.zyonicsoftware.com/api/v4/projects/164/packages/maven</url>
+</repository>
+
+<snapshotRepository>
+<id>gitlab-maven</id>
+<url>https://gitlab.zyonicsoftware.com/api/v4/projects/164/packages/maven</url>
+</snapshotRepository>
+</distributionManagement>
+````
+
+````java
+mvn dependency:get-Dartifact=com.zyonicsoftware.minereaper.redeugene:redeugene:v0.2.4
 ````
 
 ````java
 <dependency>
-<groupId>com.github.mintUI9976</groupId>
-<artifactId>RedEugene</artifactId>
-<version>version</version>
+<groupId>com.zyonicsoftware.minereaper.redeugene</groupId>
+<artifactId>redeugene</artifactId>
+<version>v0.2.4</version>
 </dependency>
 ````
 
 <h5>Gradle:</h5>
 
 ````java
-maven{url'https://jitpack.io'}
+maven{url'https://gitlab.zyonicsoftware.com/api/v4/projects/164/packages/maven'}
 ````
 
 ````java
-compile"com.github.mintUI9976:RedEugene:version"
-        compile group:'com.github.mintUI9976',name:'RedEugene',version:'version'
+implementation'com.zyonicsoftware.minereaper.redeugene:redeugene:v0.2.4'
 ````
 
 <hr />
