@@ -17,6 +17,10 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author Niklas Griese
+ */
+
 public class ExampleMain {
 
     /**
@@ -37,7 +41,7 @@ public class ExampleMain {
 
     public static void completableFutureVoidExample() {
         final String jobName = "ExampleVoidCompletableFuture";
-        final ExampleVoidFutureRunnable exampleVoidFutureRunnable = new ExampleVoidFutureRunnable(jobName);
+        final ExampleVoidExecutorRunnable exampleVoidFutureRunnable = new ExampleVoidExecutorRunnable(jobName);
         ExampleMain.redEugeneIntroduction.voidCompletableFuture(exampleVoidFutureRunnable).thenAccept(unused -> {
             System.out.println("Job: " + jobName + " is finished.");
             if (ExampleMain.redEugeneIntroduction.forceCancelEugeneJob(jobName)) {
@@ -56,7 +60,7 @@ public class ExampleMain {
 
     public static void submitWithNullResultExample() throws ExecutionException, InterruptedException {
         final String jobName = "ExampleVoidNullResultSubmit";
-        final ExampleVoidFutureRunnable exampleVoidFutureRunnable = new ExampleVoidFutureRunnable(jobName);
+        final ExampleVoidExecutorRunnable exampleVoidFutureRunnable = new ExampleVoidExecutorRunnable(jobName);
         if (ExampleMain.redEugeneIntroduction.submitWithNullResult(exampleVoidFutureRunnable).get() == null) {
             System.out.println("Job: " + jobName + " is finished.");
             if (ExampleMain.redEugeneIntroduction.forceCancelEugeneJob(jobName)) {
@@ -74,7 +78,7 @@ public class ExampleMain {
 
     public static void submitWithObjectResult(final Object result) throws ExecutionException, InterruptedException {
         final String jobName = "ExampleVoidObjectResultSubmit";
-        final ExampleVoidFutureRunnable exampleVoidFutureRunnable = new ExampleVoidFutureRunnable(jobName);
+        final ExampleVoidExecutorRunnable exampleVoidFutureRunnable = new ExampleVoidExecutorRunnable(jobName);
         if (ExampleMain.redEugeneIntroduction.submitWithObjectResult(exampleVoidFutureRunnable, result).get() == result) {
             System.out.println("Job: " + jobName + " is finished.");
             if (ExampleMain.redEugeneIntroduction.forceCancelEugeneJob(jobName)) {
@@ -109,7 +113,7 @@ public class ExampleMain {
 
     public static void scheduleWithoutDelayFutureExample() {
         final String jobName = "ExampleSchedule";
-        ExampleMain.redEugeneIntroduction.scheduleWithoutDelay(new ExampleScheduleFutureRunnable(jobName, TimeUnit.NANOSECONDS, 1));
+        ExampleMain.redEugeneIntroduction.scheduleWithoutDelay(new ExampleSchedulerRunnable(jobName, TimeUnit.NANOSECONDS, 1));
     }
 
     public static RedEugene getRedEugene() {

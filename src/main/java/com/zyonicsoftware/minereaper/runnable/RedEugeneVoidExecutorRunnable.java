@@ -16,36 +16,29 @@ import com.zyonicsoftware.minereaper.exception.EugeneException;
 import com.zyonicsoftware.minereaper.objects.EugeneJob;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * @author Niklas Griese
  * @see java.lang.Runnable
  */
 
-public abstract class RedEugeneScheduleFutureRunnable implements Runnable {
+public abstract class RedEugeneVoidExecutorRunnable implements Runnable {
 
     private EugeneJob eugeneJob;
 
     /**
      * @param eugeneJobName check, create and cache an new Job
-     * @param timeUnit      used your specified timeUnit
-     * @param period        used your specified period
      */
-    public RedEugeneScheduleFutureRunnable(@NotNull final String eugeneJobName, @NotNull final TimeUnit timeUnit, final long period) {
+    public RedEugeneVoidExecutorRunnable(@NotNull final String eugeneJobName) {
         if (RedEugeneCache.getLive(eugeneJobName).isPresent()) {
             throw new EugeneException("The job is already exists.");
         }
-        if (period <= 0) {
-            throw new EugeneException("The period value must not be less than or equal to 0");
-        }
-        this.eugeneJob = new EugeneJob(eugeneJobName, EugeneRunnableState.SCHEDULE, timeUnit, period);
+        this.eugeneJob = new EugeneJob(eugeneJobName, EugeneRunnableState.EXECUTOR, null, 0);
         this.eugeneJob.setEugeneJobState(EugeneJobState.OPEN);
         RedEugeneCache.put(eugeneJobName, this.eugeneJob);
     }
 
     /**
-     * inject in the default interface of an runnable -> the current thread of this job and their execution count
+     * inject in the default interface of an runnable -> the current thread of this job and their execution amount
      * the default reference will be set to null after you canceled the job
      */
     @Override

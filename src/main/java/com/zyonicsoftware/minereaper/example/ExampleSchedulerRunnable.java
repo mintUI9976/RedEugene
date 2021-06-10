@@ -9,19 +9,19 @@
 
 package com.zyonicsoftware.minereaper.example;
 
-import com.zyonicsoftware.minereaper.runnable.RedEugeneScheduleFutureRunnable;
+import com.zyonicsoftware.minereaper.runnable.RedEugeneSchedulerRunnable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.TimeUnit;
 
 /**
  * @author Niklas Griese
- * @see com.zyonicsoftware.minereaper.runnable.RedEugeneScheduleFutureRunnable
+ * @see RedEugeneSchedulerRunnable
  */
 
-public class ExampleScheduleFutureRunnable extends RedEugeneScheduleFutureRunnable {
+public class ExampleSchedulerRunnable extends RedEugeneSchedulerRunnable {
 
-    public ExampleScheduleFutureRunnable(@NotNull final String eugeneJobName, @NotNull final TimeUnit timeUnit, final long period) {
+    public ExampleSchedulerRunnable(@NotNull final String eugeneJobName, @NotNull final TimeUnit timeUnit, final long period) {
         super(eugeneJobName, timeUnit, period);
     }
 

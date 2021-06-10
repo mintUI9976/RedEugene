@@ -9,20 +9,20 @@
 
 package com.zyonicsoftware.minereaper.example;
 
-import com.zyonicsoftware.minereaper.runnable.RedEugeneVoidFutureRunnable;
+import com.zyonicsoftware.minereaper.runnable.RedEugeneVoidExecutorRunnable;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * @author Niklas Griese
- * @see com.zyonicsoftware.minereaper.runnable.RedEugeneVoidFutureRunnable
+ * @see RedEugeneVoidExecutorRunnable
  */
 
-public class ExampleVoidFutureRunnable extends RedEugeneVoidFutureRunnable {
+public class ExampleVoidExecutorRunnable extends RedEugeneVoidExecutorRunnable {
 
     /**
      * @param eugeneJobName check, create and cache a new Job
      */
-    public ExampleVoidFutureRunnable(@NotNull final String eugeneJobName) {
+    public ExampleVoidExecutorRunnable(@NotNull final String eugeneJobName) {
         super(eugeneJobName);
     }
 

@@ -13,8 +13,8 @@ import com.zyonicsoftware.minereaper.cache.RedEugeneCache;
 import com.zyonicsoftware.minereaper.enums.EugeneJobState;
 import com.zyonicsoftware.minereaper.objects.EugeneJob;
 import com.zyonicsoftware.minereaper.redeugene.RedEugene;
-import com.zyonicsoftware.minereaper.runnable.RedEugeneScheduleFutureRunnable;
-import com.zyonicsoftware.minereaper.runnable.RedEugeneVoidFutureRunnable;
+import com.zyonicsoftware.minereaper.runnable.RedEugeneSchedulerRunnable;
+import com.zyonicsoftware.minereaper.runnable.RedEugeneVoidExecutorRunnable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
@@ -36,55 +36,55 @@ public class RedEugeneIntroduction {
     }
 
     /**
-     * @param redEugeneScheduleFutureRunnable used to run the runnable and grab your provided schedule preferences
+     * @param redEugeneSchedulerRunnable used to run the runnable and grab your provided schedule preferences
      */
 
-    public void scheduleWithoutDelay(@NotNull final RedEugeneScheduleFutureRunnable redEugeneScheduleFutureRunnable) {
-        final ScheduledFuture<?> scheduledFuture = this.redEugene.getRedThreadPool().scheduleAtFixedRate(redEugeneScheduleFutureRunnable, 0, redEugeneScheduleFutureRunnable.getEugeneJob().getPeriod(), redEugeneScheduleFutureRunnable.getEugeneJob().getTimeunit());
-        redEugeneScheduleFutureRunnable.getEugeneJob().setFuture(scheduledFuture);
+    public void scheduleWithoutDelay(@NotNull final RedEugeneSchedulerRunnable redEugeneSchedulerRunnable) {
+        final ScheduledFuture<?> scheduledFuture = this.redEugene.getRedThreadPool().scheduleAtFixedRate(redEugeneSchedulerRunnable, 0, redEugeneSchedulerRunnable.getEugeneJob().getPeriod(), redEugeneSchedulerRunnable.getEugeneJob().getTimeunit());
+        redEugeneSchedulerRunnable.getEugeneJob().setFuture(scheduledFuture);
     }
 
     /**
-     * @param redEugeneScheduleFutureRunnable used to run the runnable and grab your provided schedule preferences
-     * @param delay                           sets the first timeout before the scheduler uses the period as the timeout
+     * @param redEugeneSchedulerRunnable used to run the runnable and grab your provided schedule preferences
+     * @param delay                      sets the first timeout before the scheduler uses the period as the timeout
      */
 
-    public void scheduleWithDelay(@NotNull final RedEugeneScheduleFutureRunnable redEugeneScheduleFutureRunnable, final long delay) {
-        final ScheduledFuture<?> scheduledFuture = this.redEugene.getRedThreadPool().scheduleAtFixedRate(redEugeneScheduleFutureRunnable, delay, redEugeneScheduleFutureRunnable.getEugeneJob().getPeriod(), redEugeneScheduleFutureRunnable.getEugeneJob().getTimeunit());
-        redEugeneScheduleFutureRunnable.getEugeneJob().setFuture(scheduledFuture);
+    public void scheduleWithDelay(@NotNull final RedEugeneSchedulerRunnable redEugeneSchedulerRunnable, final long delay) {
+        final ScheduledFuture<?> scheduledFuture = this.redEugene.getRedThreadPool().scheduleAtFixedRate(redEugeneSchedulerRunnable, delay, redEugeneSchedulerRunnable.getEugeneJob().getPeriod(), redEugeneSchedulerRunnable.getEugeneJob().getTimeunit());
+        redEugeneSchedulerRunnable.getEugeneJob().setFuture(scheduledFuture);
     }
 
     /**
-     * @param redEugeneVoidFutureRunnable used to run the runnable and grab your provided executor preferences
+     * @param redEugeneVoidExecutorRunnable used to run the runnable and grab your provided executor preferences
      * @return a future to work with the result
      */
 
-    public Future<?> submitWithNullResult(@NotNull final RedEugeneVoidFutureRunnable redEugeneVoidFutureRunnable) {
-        final Future<?> future = this.redEugene.getRedThreadPool().submit(redEugeneVoidFutureRunnable);
-        redEugeneVoidFutureRunnable.getEugeneJob().setFuture(future);
+    public Future<?> submitWithNullResult(@NotNull final RedEugeneVoidExecutorRunnable redEugeneVoidExecutorRunnable) {
+        final Future<?> future = this.redEugene.getRedThreadPool().submit(redEugeneVoidExecutorRunnable);
+        redEugeneVoidExecutorRunnable.getEugeneJob().setFuture(future);
         return future;
     }
 
     /**
-     * @param redEugeneVoidFutureRunnable used to run the runnable and grab your provided executor preferences
-     * @param result                      the object to get returned after a successful run
+     * @param redEugeneVoidExecutorRunnable used to run the runnable and grab your provided executor preferences
+     * @param result                        the object to get returned after a successful run
      * @return a future to work with the result
      */
 
-    public Future<?> submitWithObjectResult(@NotNull final RedEugeneVoidFutureRunnable redEugeneVoidFutureRunnable, @NotNull final Object result) {
-        final Future<?> future = this.redEugene.getRedThreadPool().submit(redEugeneVoidFutureRunnable, result);
-        redEugeneVoidFutureRunnable.getEugeneJob().setFuture(future);
+    public Future<?> submitWithObjectResult(@NotNull final RedEugeneVoidExecutorRunnable redEugeneVoidExecutorRunnable, @NotNull final Object result) {
+        final Future<?> future = this.redEugene.getRedThreadPool().submit(redEugeneVoidExecutorRunnable, result);
+        redEugeneVoidExecutorRunnable.getEugeneJob().setFuture(future);
         return future;
     }
 
     /**
-     * @param redEugeneVoidFutureRunnable uses to run the runnable and grab your provided executor preferences
+     * @param redEugeneVoidExecutorRunnable uses to run the runnable and grab your provided executor preferences
      * @return a future to work with the result
      */
 
-    public CompletableFuture<Void> voidCompletableFuture(@NotNull final RedEugeneVoidFutureRunnable redEugeneVoidFutureRunnable) {
-        final CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(redEugeneVoidFutureRunnable, this.redEugene.getRedThreadPool());
-        redEugeneVoidFutureRunnable.getEugeneJob().setFuture(completableFuture);
+    public CompletableFuture<Void> voidCompletableFuture(@NotNull final RedEugeneVoidExecutorRunnable redEugeneVoidExecutorRunnable) {
+        final CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(redEugeneVoidExecutorRunnable, this.redEugene.getRedThreadPool());
+        redEugeneVoidExecutorRunnable.getEugeneJob().setFuture(completableFuture);
         return completableFuture;
     }
 

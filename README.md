@@ -93,6 +93,10 @@ private final RedEugeneIntroduction redEugeneIntroduction=new RedEugeneIntroduct
 
 <h4>Examples:</h4>
 
+- All callable methods
+  -> [ExampleMain.java](https://github.com/mintUI9976/RedEugene/blob/master/src/main/java/com/zyonicsoftware/minereaper/example/ExampleMain.java)
+- SchedulerRun
+
 </div>
 
 
