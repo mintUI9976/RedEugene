@@ -6,8 +6,10 @@
   <a href="https://github.com/mintUI9976/RedEugene"><img src="https://img.shields.io/github/languages/code-size/mintUI9976/RedEugene?color=orange" /></a>
   <a href="https://github.com/mintUI9976/RedEugene"><img src="https://img.shields.io/tokei/lines/github/mintUI9976/RedEugene?color=yellow" /></a>
   <a href="https://github.com/mintUI9976/RedEugene/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mintUI9976/RedEugene" /></a>
+  <a href="https://github.com/mintUI9976/RedEugene/stargazers"><img src="https://img.shields.io/github/stars/mintUI9976/RedEugene?color=ff69b4" /></a>
+  <a href=""><img src="https://img.shields.io/github/languages/count/mintUI9976/RedEugene?color=blueviolet" /></a>
   <a href="https://discord.gg/vFVk4TmNQC"><img src="https://img.shields.io/discord/743171495454441503?label=discord&color=cyan" /></a>
-  <img src="https://img.shields.io/badge/opensource-❤-green">
+  <img src="https://img.shields.io/badge/opensource-❤-9cf">
   <br />
   <br />
   <a href="https://zyonicsoftware.com">Website</a>
@@ -21,6 +23,8 @@
   <a href="https://github.com/Zyonic-Software">Github</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
   <a href="https://twitter.com/zyonicsoftware">Twitter</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://discord.gg/vFVk4TmNQC">Discord</a>
   <br />
   <hr />
 </div>
@@ -95,14 +99,18 @@ compile"com.github.mintUI9976:RedEugene:version"
 ````java
 private static final RedEugene redEugene=new RedEugene(yourName,coreSize,deamon,priority);
 private final RedEugeneIntroduction redEugeneIntroduction=new RedEugeneIntroduction(redEugene);
+private final EugenePoolStatistics eugenePoolStatistics=new EugenePoolStatistics(redEugene);
 ````
 
 <hr />
 
 <h4>Examples:</h4>
 
-- All runnable methods
+- Example runnable methods
   -> [ExampleMain.java](https://github.com/mintUI9976/RedEugene/blob/master/src/main/java/com/zyonicsoftware/minereaper/example/ExampleMain.java)
+- Example pool statistics
+  -> [ExampleMain.java](https://github.com/mintUI9976/RedEugene/blob/master/src/main/java/com/zyonicsoftware/minereaper/example/ExampleMain.java)
+
 - RedEugeneSchedulerRunnable custom reference
   -> [ExampleSchedulerRunnable.java](https://github.com/mintUI9976/RedEugene/blob/master/src/main/java/com/zyonicsoftware/minereaper/example/ExampleSchedulerRunnable.java)
 - RedEugeneVoidExecutorRunnable custom reference

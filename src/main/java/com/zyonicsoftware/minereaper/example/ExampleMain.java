@@ -12,6 +12,7 @@ package com.zyonicsoftware.minereaper.example;
 import com.zyonicsoftware.minereaper.enums.EugeneFactoryPriority;
 import com.zyonicsoftware.minereaper.redeugene.RedEugene;
 import com.zyonicsoftware.minereaper.scheduler.RedEugeneIntroduction;
+import com.zyonicsoftware.minereaper.statistics.EugenePoolStatistics;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -31,6 +32,10 @@ public class ExampleMain {
      * create the caller instance to interact with our methods
      */
     private static final RedEugeneIntroduction redEugeneIntroduction = new RedEugeneIntroduction(ExampleMain.redEugene);
+    /**
+     * create the stats instance to get all live information about the pool
+     */
+    private static final EugenePoolStatistics eugenePoolStatistics = new EugenePoolStatistics(ExampleMain.redEugene);
 
     /**
      * All Void return futures will be protocolized from RedEugene
