@@ -1,13 +1,12 @@
 plugins {
     id 'java'
     id 'maven'
-    id 'maven-publish'
 }
 
 apply plugin: 'maven'
 
 group 'com.zyonicsoftware.minereaper.redeugene'
-version 'v0.2.1'
+version 'v0.2.2'
 
 repositories {
     mavenCentral()
