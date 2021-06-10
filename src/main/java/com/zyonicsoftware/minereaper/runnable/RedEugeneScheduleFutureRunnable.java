@@ -18,12 +18,19 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author Niklas Griese
+ * @see java.lang.Runnable
+ */
+
 public abstract class RedEugeneScheduleFutureRunnable implements Runnable {
 
     private EugeneJob eugeneJob;
 
     /**
      * @param eugeneJobName check, create and cache an new Job
+     * @param timeUnit      used your specified timeUnit
+     * @param period        used your specified period
      */
     public RedEugeneScheduleFutureRunnable(@NotNull final String eugeneJobName, @NotNull final TimeUnit timeUnit, final long period) {
         if (RedEugeneCache.getLive(eugeneJobName).isPresent()) {
@@ -38,8 +45,8 @@ public abstract class RedEugeneScheduleFutureRunnable implements Runnable {
     }
 
     /**
-     * inject in the default interface of an runnable -> the current thread of this job and their execution amount
-     * the default reference will be set to null after you cancel the job
+     * inject in the default interface of an runnable -> the current thread of this job and their execution count
+     * the default reference will be set to null after you canceled the job
      */
     @Override
     public void run() {

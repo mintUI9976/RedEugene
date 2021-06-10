@@ -12,8 +12,8 @@ package com.zyonicsoftware.minereaper.exception;
 public class RedExceptionHandler implements Thread.UncaughtExceptionHandler {
 
     /**
-     * @param thread    sets the thread above the thread factory
-     * @param throwable will be called when the thread the exception can not be handle
+     * @param thread    the thread the exception got thrown in
+     * @param throwable thrown when the thread couldn't handle a exception
      */
 
     @Override

@@ -9,6 +9,11 @@
 
 package com.zyonicsoftware.minereaper.exception;
 
+/**
+ * @see java.lang.Exception
+ * @see java.lang.RuntimeException
+ */
+
 public class EugeneException extends RuntimeException {
     private static final long serialVersionUID = -380577725444088189L;
 

@@ -85,8 +85,8 @@ compile"com.github.mintUI9976:RedEugene:version"
 <h4>Utilization:</h4>
 
 ````java
-private static final RedEugene redEugene=new RedEugene(yourName,coreSize,deamon,priority);->created the factory and the thread pool
-private final RedEugeneIntroduction redEugeneIntroduction=new RedEugeneIntroduction(redEugene);->with this invoke you can call the schedule or executor methods
+private static final RedEugene redEugene=new RedEugene(yourName,coreSize,deamon,priority);
+private final RedEugeneIntroduction redEugeneIntroduction=new RedEugeneIntroduction(redEugene);
 ````
 
 <hr />

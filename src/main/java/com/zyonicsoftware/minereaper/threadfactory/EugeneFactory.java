@@ -15,6 +15,10 @@ import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * @author Niklas Griese
+ */
+
 public class EugeneFactory {
 
     private String factoryName = "RedEugeneFactory";
@@ -22,20 +26,41 @@ public class EugeneFactory {
     private int priority = Thread.NORM_PRIORITY;
     private final AtomicInteger count = new AtomicInteger(0);
 
+    /**
+     * @param factoryName sets the overall thread name
+     * @return an builder instance
+     */
+
     public EugeneFactory setName(@NotNull final String factoryName) {
         this.factoryName = factoryName;
         return this;
     }
+
+    /**
+     * @param daemon sets the overall thread daemon
+     * @return an builder instance
+     */
 
     public EugeneFactory setDaemon(final boolean daemon) {
         this.daemon = daemon;
         return this;
     }
 
+    /**
+     * @param priority sets the overall thread priority
+     * @return an builder instance
+     */
+
     public EugeneFactory setPriority(final int priority) {
         this.priority = priority;
         return this;
     }
+
+    /**
+     * @return the custom build of the thread factory
+     * creates a new thread and increments the thread count
+     * add an custom UncaughtExceptionHandler with more details
+     */
 
     public ThreadFactory build() {
         return runnable -> {
@@ -49,17 +74,33 @@ public class EugeneFactory {
         };
     }
 
+    /**
+     * @return your custom factory name
+     */
+
     public String getFactoryName() {
         return this.factoryName;
     }
+
+    /**
+     * @return your selected daemon
+     */
 
     public boolean isDaemon() {
         return this.daemon;
     }
 
+    /**
+     * @return your priority
+     */
+
     public int getPriority() {
         return this.priority;
     }
+
+    /**
+     * @return the count of current threads
+     */
 
     public int getCount() {
         return this.count.get();

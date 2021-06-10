@@ -16,6 +16,11 @@ import com.zyonicsoftware.minereaper.exception.EugeneException;
 import com.zyonicsoftware.minereaper.objects.EugeneJob;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * @author Niklas Griese
+ * @see java.lang.Runnable
+ */
+
 public abstract class RedEugeneVoidFutureRunnable implements Runnable {
 
     private EugeneJob eugeneJob;
@@ -34,7 +39,7 @@ public abstract class RedEugeneVoidFutureRunnable implements Runnable {
 
     /**
      * inject in the default interface of an runnable -> the current thread of this job and their execution amount
-     * the default reference will be set to null after you cancel the job
+     * the default reference will be set to null after you canceled the job
      */
     @Override
     public void run() {

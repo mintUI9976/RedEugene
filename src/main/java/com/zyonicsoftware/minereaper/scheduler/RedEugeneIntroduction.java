@@ -23,6 +23,10 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author Niklas Griese
+ */
+
 public class RedEugeneIntroduction {
 
     private final RedEugene redEugene;
@@ -32,7 +36,7 @@ public class RedEugeneIntroduction {
     }
 
     /**
-     * @param redEugeneScheduleFutureRunnable will be use to run the runnable and to grab your provided schedule preferences
+     * @param redEugeneScheduleFutureRunnable used to run the runnable and grab your provided schedule preferences
      */
 
     public void scheduleWithoutDelay(@NotNull final RedEugeneScheduleFutureRunnable redEugeneScheduleFutureRunnable) {
@@ -41,8 +45,8 @@ public class RedEugeneIntroduction {
     }
 
     /**
-     * @param redEugeneScheduleFutureRunnable will be use to run the runnable and to grab your provided schedule preferences
-     * @param delay                           set the first timeout before the schedule use the period as timeout
+     * @param redEugeneScheduleFutureRunnable used to run the runnable and grab your provided schedule preferences
+     * @param delay                           sets the first timeout before the scheduler uses the period as the timeout
      */
 
     public void scheduleWithDelay(@NotNull final RedEugeneScheduleFutureRunnable redEugeneScheduleFutureRunnable, final long delay) {
@@ -51,8 +55,8 @@ public class RedEugeneIntroduction {
     }
 
     /**
-     * @param redEugeneVoidFutureRunnable will be use to run the runnable and to grab your provided executor preferences
-     * @return an future to work with the result
+     * @param redEugeneVoidFutureRunnable used to run the runnable and grab your provided executor preferences
+     * @return a future to work with the result
      */
 
     public Future<?> submitWithNullResult(@NotNull final RedEugeneVoidFutureRunnable redEugeneVoidFutureRunnable) {
@@ -62,9 +66,9 @@ public class RedEugeneIntroduction {
     }
 
     /**
-     * @param redEugeneVoidFutureRunnable will be use to run the runnable and to grab your provided executor preferences
-     * @param result                      is an object that will be returned after the future is successfully run
-     * @return an future to work with the result
+     * @param redEugeneVoidFutureRunnable used to run the runnable and grab your provided executor preferences
+     * @param result                      the object to get returned after a successful run
+     * @return a future to work with the result
      */
 
     public Future<?> submitWithObjectResult(@NotNull final RedEugeneVoidFutureRunnable redEugeneVoidFutureRunnable, @NotNull final Object result) {
@@ -74,8 +78,8 @@ public class RedEugeneIntroduction {
     }
 
     /**
-     * @param redEugeneVoidFutureRunnable will be use to run the runnable and to grab your provided executor preferences
-     * @return an future to work with the result
+     * @param redEugeneVoidFutureRunnable uses to run the runnable and grab your provided executor preferences
+     * @return a future to work with the result
      */
 
     public CompletableFuture<Void> voidCompletableFuture(@NotNull final RedEugeneVoidFutureRunnable redEugeneVoidFutureRunnable) {
@@ -85,8 +89,8 @@ public class RedEugeneIntroduction {
     }
 
     /**
-     * @param timeout will be use to make an gracefully shutdown for thread pool
-     * @throws InterruptedException will be use after the await termination failed
+     * @param timeout the timeout to gracefully shutdown the thread pool
+     * @throws InterruptedException thrown when the shutdown failed
      */
 
     public void shutdownPool(final long timeout) throws InterruptedException {
@@ -100,8 +104,8 @@ public class RedEugeneIntroduction {
     }
 
     /**
-     * @param eugeneJobName will be use to cancel running schedules/purge and will be purge finished void executor
-     * @return an boolean to get the finished state
+     * @param eugeneJobName Cancels and purges all scheduled tasks and the executor
+     * @return if it worked
      */
 
     public boolean forceCancelEugeneJob(@NotNull final String eugeneJobName) {
@@ -135,7 +139,7 @@ public class RedEugeneIntroduction {
     }
 
     /**
-     * use it when the task really done
+     * use it when the task really is done
      */
 
     public void clearDeadTasks() {

@@ -14,14 +14,18 @@ import com.zyonicsoftware.minereaper.pool.RedThreadPool;
 import com.zyonicsoftware.minereaper.threadfactory.EugeneFactory;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * @author Niklas Griese
+ */
+
 public class RedEugene {
 
     private RedThreadPool redThreadPool;
     private final int coreSize;
 
     /**
-     * @param eugeneFactoryName     will be used to create an new thread with your custom name
-     * @param coreSize              will be used to specified the size of the thread pool
+     * @param eugeneFactoryName     used to create a new thread with your custom name
+     * @param coreSize              used to specify the size of the thread pool
      * @param daemon                read the wiki for more information -> "https://gitlab.zyonicsoftware.com/mint9976/redeugene/-/wikis/What-is-an-Daemon-thread-in-Java%3F"
      * @param eugeneFactoryPriority read the wiki for more information -> "https://gitlab.zyonicsoftware.com/mint9976/redeugene/-/wikis/What-is-thread-priority-in-Java%3F"
      */

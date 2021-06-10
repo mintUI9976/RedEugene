@@ -14,16 +14,26 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author Niklas Griese
+ * @see com.zyonicsoftware.minereaper.runnable.RedEugeneScheduleFutureRunnable
+ */
+
 public class ExampleScheduleFutureRunnable extends RedEugeneScheduleFutureRunnable {
 
     public ExampleScheduleFutureRunnable(@NotNull final String eugeneJobName, @NotNull final TimeUnit timeUnit, final long period) {
         super(eugeneJobName, timeUnit, period);
     }
 
+    /**
+     * don't remove super.run(); this calls the inject reference!
+     * then you can call your own void scheduler
+     */
+
     @Override
     public void run() {
-        super.run(); // don't remove super.run(); this called the inject reference!
-        this.callCodeBlock(); // checked the execution to interrupted your self ;)
+        super.run();
+        this.callCodeBlock(); // checked the execution count to cancel your self ;)
     }
 
     private void callCodeBlock() {
@@ -32,7 +42,7 @@ public class ExampleScheduleFutureRunnable extends RedEugeneScheduleFutureRunnab
                 System.out.println("Job is finished");
             }
         } else {
-            System.out.println(this.getEugeneJob().toString());
+            System.out.println(this.getEugeneJob());
         }
     }
 

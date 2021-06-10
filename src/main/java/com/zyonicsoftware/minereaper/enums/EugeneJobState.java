@@ -9,6 +9,11 @@
 
 package com.zyonicsoftware.minereaper.enums;
 
+/**
+ * @author Niklas Griese
+ * @see java.lang.Enum
+ */
+
 public enum EugeneJobState {
 
     OPEN,
