@@ -64,10 +64,18 @@ compile"com.github.mintUI9976:RedEugene:version"
 ````
 
 <hr />
-<h4>Prerequisites:</h4>
+
+<h4>Project-Prerequisites:</h4>
 
 ``JDK 11 or above``
+
 <hr />
+
+<h4>Developer-Prerequisites:</h4>
+
+``You have to make the scalability of your threads by yourself``
+<hr />
+
 <h4>Features:</h4>
 
 - none monitoring thread to check or work with your threads(tasks)
@@ -93,9 +101,22 @@ private final RedEugeneIntroduction redEugeneIntroduction=new RedEugeneIntroduct
 
 <h4>Examples:</h4>
 
-- All callable methods
+- All runnable methods
   -> [ExampleMain.java](https://github.com/mintUI9976/RedEugene/blob/master/src/main/java/com/zyonicsoftware/minereaper/example/ExampleMain.java)
-- SchedulerRun
+- RedEugeneSchedulerRunnable custom reference
+  -> [ExampleSchedulerRunnable.java](https://github.com/mintUI9976/RedEugene/blob/master/src/main/java/com/zyonicsoftware/minereaper/example/ExampleSchedulerRunnable.java)
+- RedEugeneVoidExecutorRunnable custom reference
+  -> [ExampleVoidExecutorRunnable.java](https://github.com/mintUI9976/RedEugene/blob/master/src/main/java/com/zyonicsoftware/minereaper/example/ExampleVoidExecutorRunnable.java)
+
+<hr />
+
+<h4>Wiki:</h4>
+
+- [What is an Daemon thread in Java?](https://github.com/mintUI9976/RedEugene/wiki/What-is-an-Daemon-thread-in-Java%3F)
+- [What is an EugeneJob?](https://github.com/mintUI9976/RedEugene/wiki/What-is-an-EugeneJob%3F)
+- [What is thread priority in Java?](https://github.com/mintUI9976/RedEugene/wiki/What-is-thread-priority-in-Java%3F)
+
+<hr />
 
 </div>
 
