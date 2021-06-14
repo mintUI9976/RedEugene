@@ -16,24 +16,20 @@ import org.jetbrains.annotations.NotNull;
  * @author Niklas Griese
  * @see RedEugeneVoidExecutorRunnable
  */
-
 public class ExampleVoidExecutorRunnable extends RedEugeneVoidExecutorRunnable {
 
-    /**
-     * @param eugeneJobName check, create and cache a new Job
-     */
-    public ExampleVoidExecutorRunnable(@NotNull final String eugeneJobName) {
-        super(eugeneJobName);
-    }
+  /** @param eugeneJobName check, create and cache a new Job */
+  public ExampleVoidExecutorRunnable(@NotNull final String eugeneJobName) {
+    super(eugeneJobName);
+  }
 
-    /**
-     * don't remove super.run(); this calls the inject reference!
-     * then you can call your own void execution
-     */
-
-    @Override
-    public void run() {
-        super.run();
-        System.out.println("Hello World!"); // test execution
-    }
+  /**
+   * don't remove super.run(); this calls the inject reference! then you can call your own void
+   * execution
+   */
+  @Override
+  public void run() {
+    super.run();
+    System.out.println("Hello World!"); // test execution
+  }
 }

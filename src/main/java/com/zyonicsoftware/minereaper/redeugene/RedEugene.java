@@ -14,51 +14,68 @@ import com.zyonicsoftware.minereaper.pool.RedThreadPool;
 import com.zyonicsoftware.minereaper.threadfactory.EugeneFactory;
 import org.jetbrains.annotations.NotNull;
 
-/**
- * @author Niklas Griese
- */
-
+/** @author Niklas Griese */
 public class RedEugene {
 
-    private RedThreadPool redThreadPool;
-    private final int coreSize;
+  private RedThreadPool redThreadPool;
+  private final int coreSize;
 
-    /**
-     * @param eugeneFactoryName     used to create a new thread with your custom name
-     * @param coreSize              used to specify the size of the thread pool
-     * @param daemon                read the wiki for more information -> "https://gitlab.zyonicsoftware.com/mint9976/redeugene/-/wikis/What-is-an-Daemon-thread-in-Java%3F"
-     * @param eugeneFactoryPriority read the wiki for more information -> "https://gitlab.zyonicsoftware.com/mint9976/redeugene/-/wikis/What-is-thread-priority-in-Java%3F"
-     */
-
-    public RedEugene(@NotNull final String eugeneFactoryName, final int coreSize, final boolean daemon, @NotNull final EugeneFactoryPriority eugeneFactoryPriority) {
-        this.coreSize = coreSize;
-        switch (eugeneFactoryPriority) {
-            case MIN:
-                this.redThreadPool = new RedThreadPool(this.coreSize, new EugeneFactory().setPriority(Thread.MIN_PRIORITY).setDaemon(daemon).setName(eugeneFactoryName).build());
-                break;
-            case NORM:
-                this.redThreadPool = new RedThreadPool(this.coreSize, new EugeneFactory().setPriority(Thread.NORM_PRIORITY).setDaemon(daemon).setName(eugeneFactoryName).build());
-                break;
-            case MAX:
-                this.redThreadPool = new RedThreadPool(this.coreSize, new EugeneFactory().setPriority(Thread.MAX_PRIORITY).setDaemon(daemon).setName(eugeneFactoryName).build());
-                break;
-        }
-        this.redThreadPool.setRemoveOnCancelPolicy(true);
+  /**
+   * @param eugeneFactoryName used to create a new thread with your custom name
+   * @param coreSize used to specify the size of the thread pool
+   * @param daemon read the wiki for more information ->
+   *     "https://gitlab.zyonicsoftware.com/mint9976/redeugene/-/wikis/What-is-an-Daemon-thread-in-Java%3F"
+   * @param eugeneFactoryPriority read the wiki for more information ->
+   *     "https://gitlab.zyonicsoftware.com/mint9976/redeugene/-/wikis/What-is-thread-priority-in-Java%3F"
+   */
+  public RedEugene(
+      @NotNull final String eugeneFactoryName,
+      final int coreSize,
+      final boolean daemon,
+      @NotNull final EugeneFactoryPriority eugeneFactoryPriority) {
+    this.coreSize = coreSize;
+    switch (eugeneFactoryPriority) {
+      case MIN:
+        this.redThreadPool =
+            new RedThreadPool(
+                this.coreSize,
+                new EugeneFactory()
+                    .setPriority(Thread.MIN_PRIORITY)
+                    .setDaemon(daemon)
+                    .setName(eugeneFactoryName)
+                    .build());
+        break;
+      case NORM:
+        this.redThreadPool =
+            new RedThreadPool(
+                this.coreSize,
+                new EugeneFactory()
+                    .setPriority(Thread.NORM_PRIORITY)
+                    .setDaemon(daemon)
+                    .setName(eugeneFactoryName)
+                    .build());
+        break;
+      case MAX:
+        this.redThreadPool =
+            new RedThreadPool(
+                this.coreSize,
+                new EugeneFactory()
+                    .setPriority(Thread.MAX_PRIORITY)
+                    .setDaemon(daemon)
+                    .setName(eugeneFactoryName)
+                    .build());
+        break;
     }
+    this.redThreadPool.setRemoveOnCancelPolicy(true);
+  }
 
-    /**
-     * @return all information about the thread pool
-     */
+  /** @return all information about the thread pool */
+  public RedThreadPool getRedThreadPool() {
+    return this.redThreadPool;
+  }
 
-    public RedThreadPool getRedThreadPool() {
-        return this.redThreadPool;
-    }
-
-    /**
-     * @return your size set
-     */
-
-    public int getCoreSize() {
-        return this.coreSize;
-    }
+  /** @return your size set */
+  public int getCoreSize() {
+    return this.coreSize;
+  }
 }

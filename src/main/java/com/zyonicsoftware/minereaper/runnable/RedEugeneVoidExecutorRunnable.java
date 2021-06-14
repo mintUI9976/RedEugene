@@ -20,42 +20,36 @@ import org.jetbrains.annotations.NotNull;
  * @author Niklas Griese
  * @see java.lang.Runnable
  */
-
 public abstract class RedEugeneVoidExecutorRunnable implements Runnable {
 
-    private EugeneJob eugeneJob;
+  private EugeneJob eugeneJob;
 
-    /**
-     * @param eugeneJobName check, create and cache an new Job
-     */
-    public RedEugeneVoidExecutorRunnable(@NotNull final String eugeneJobName) {
-        if (RedEugeneCache.getLive(eugeneJobName).isPresent()) {
-            throw new EugeneException("The job is already exists.");
-        }
-        this.eugeneJob = new EugeneJob(eugeneJobName, EugeneRunnableState.EXECUTOR, null, 0);
-        this.eugeneJob.setEugeneJobState(EugeneJobState.OPEN);
-        RedEugeneCache.put(eugeneJobName, this.eugeneJob);
+  /** @param eugeneJobName check, create and cache an new Job */
+  public RedEugeneVoidExecutorRunnable(@NotNull final String eugeneJobName) {
+    if (RedEugeneCache.getLive(eugeneJobName).isPresent()) {
+      throw new EugeneException("The job is already exists.");
     }
+    this.eugeneJob = new EugeneJob(eugeneJobName, EugeneRunnableState.EXECUTOR, null, 0);
+    this.eugeneJob.setEugeneJobState(EugeneJobState.OPEN);
+    RedEugeneCache.put(eugeneJobName, this.eugeneJob);
+  }
 
-    /**
-     * inject in the default interface of an runnable -> the current thread of this job and their execution amount
-     * the default reference will be set to null after you canceled the job
-     */
-    @Override
-    public void run() {
-        if (this.eugeneJob.getEugeneJobState().equals(EugeneJobState.OPEN)) {
-            this.eugeneJob.setExecute(this.eugeneJob.getExecute() + 1);
-            this.eugeneJob.setLastWorkThread(Thread.currentThread().getName());
-        } else {
-            this.eugeneJob = null;
-        }
+  /**
+   * inject in the default interface of an runnable -> the current thread of this job and their
+   * execution amount the default reference will be set to null after you canceled the job
+   */
+  @Override
+  public void run() {
+    if (this.eugeneJob.getEugeneJobState().equals(EugeneJobState.OPEN)) {
+      this.eugeneJob.setExecute(this.eugeneJob.getExecute() + 1);
+      this.eugeneJob.setLastWorkThread(Thread.currentThread().getName());
+    } else {
+      this.eugeneJob = null;
     }
+  }
 
-    /**
-     * @return the current job of this called reference
-     */
-
-    public EugeneJob getEugeneJob() {
-        return this.eugeneJob;
-    }
+  /** @return the current job of this called reference */
+  public EugeneJob getEugeneJob() {
+    return this.eugeneJob;
+  }
 }

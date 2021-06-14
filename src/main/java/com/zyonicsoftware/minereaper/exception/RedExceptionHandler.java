@@ -11,18 +11,17 @@ package com.zyonicsoftware.minereaper.exception;
 
 public class RedExceptionHandler implements Thread.UncaughtExceptionHandler {
 
-    /**
-     * @param thread    the thread the exception got thrown in
-     * @param throwable thrown when the thread couldn't handle a exception
-     */
-
-    @Override
-    public void uncaughtException(final Thread thread, final Throwable throwable) {
-        System.out.println("Thread: " + thread.getName());
-        System.out.println("ThreadState: " + thread.getState());
-        System.out.println("ThreadID: " + thread.getId());
-        System.out.println("ThreadGroup: " + thread.getThreadGroup());
-        System.out.println("ThreadExceptionHandler: " + thread.getUncaughtExceptionHandler());
-        System.out.println("Exception: " + throwable);
-    }
+  /**
+   * @param thread the thread the exception got thrown in
+   * @param throwable thrown when the thread couldn't handle a exception
+   */
+  @Override
+  public void uncaughtException(final Thread thread, final Throwable throwable) {
+    System.out.println("Thread: " + thread.getName());
+    System.out.println("ThreadState: " + thread.getState());
+    System.out.println("ThreadID: " + thread.getId());
+    System.out.println("ThreadGroup: " + thread.getThreadGroup());
+    System.out.println("ThreadExceptionHandler: " + thread.getUncaughtExceptionHandler());
+    System.out.println("Exception: " + throwable);
+  }
 }

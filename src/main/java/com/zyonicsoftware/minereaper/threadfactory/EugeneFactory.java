@@ -15,94 +15,74 @@ import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * @author Niklas Griese
- */
-
+/** @author Niklas Griese */
 public class EugeneFactory {
 
-    private String factoryName = "RedEugeneFactory";
-    private boolean daemon = false;
-    private int priority = Thread.NORM_PRIORITY;
-    private final AtomicInteger count = new AtomicInteger(0);
+  private String factoryName = "RedEugeneFactory";
+  private boolean daemon = false;
+  private int priority = Thread.NORM_PRIORITY;
+  private final AtomicInteger count = new AtomicInteger(0);
 
-    /**
-     * @param factoryName sets the overall thread name
-     * @return an builder instance
-     */
+  /**
+   * @param factoryName sets the overall thread name
+   * @return an builder instance
+   */
+  public EugeneFactory setName(@NotNull final String factoryName) {
+    this.factoryName = factoryName;
+    return this;
+  }
 
-    public EugeneFactory setName(@NotNull final String factoryName) {
-        this.factoryName = factoryName;
-        return this;
-    }
+  /**
+   * @param daemon sets the overall thread daemon
+   * @return an builder instance
+   */
+  public EugeneFactory setDaemon(final boolean daemon) {
+    this.daemon = daemon;
+    return this;
+  }
 
-    /**
-     * @param daemon sets the overall thread daemon
-     * @return an builder instance
-     */
+  /**
+   * @param priority sets the overall thread priority
+   * @return an builder instance
+   */
+  public EugeneFactory setPriority(final int priority) {
+    this.priority = priority;
+    return this;
+  }
 
-    public EugeneFactory setDaemon(final boolean daemon) {
-        this.daemon = daemon;
-        return this;
-    }
+  /**
+   * @return the custom build of the thread factory creates a new thread and increments the thread
+   *     count add an custom UncaughtExceptionHandler with more details
+   */
+  public ThreadFactory build() {
+    return runnable -> {
+      final Thread thread = new Thread(runnable);
+      this.count.getAndIncrement();
+      thread.setDaemon(EugeneFactory.this.daemon);
+      thread.setPriority(EugeneFactory.this.priority);
+      thread.setName(EugeneFactory.this.factoryName + "-" + this.count.get());
+      thread.setUncaughtExceptionHandler(new RedExceptionHandler());
+      return thread;
+    };
+  }
 
-    /**
-     * @param priority sets the overall thread priority
-     * @return an builder instance
-     */
+  /** @return your custom factory name */
+  public String getFactoryName() {
+    return this.factoryName;
+  }
 
-    public EugeneFactory setPriority(final int priority) {
-        this.priority = priority;
-        return this;
-    }
+  /** @return your selected daemon */
+  public boolean isDaemon() {
+    return this.daemon;
+  }
 
-    /**
-     * @return the custom build of the thread factory
-     * creates a new thread and increments the thread count
-     * add an custom UncaughtExceptionHandler with more details
-     */
+  /** @return your priority */
+  public int getPriority() {
+    return this.priority;
+  }
 
-    public ThreadFactory build() {
-        return runnable -> {
-            final Thread thread = new Thread(runnable);
-            this.count.getAndIncrement();
-            thread.setDaemon(EugeneFactory.this.daemon);
-            thread.setPriority(EugeneFactory.this.priority);
-            thread.setName(EugeneFactory.this.factoryName + "-" + this.count.get());
-            thread.setUncaughtExceptionHandler(new RedExceptionHandler());
-            return thread;
-        };
-    }
-
-    /**
-     * @return your custom factory name
-     */
-
-    public String getFactoryName() {
-        return this.factoryName;
-    }
-
-    /**
-     * @return your selected daemon
-     */
-
-    public boolean isDaemon() {
-        return this.daemon;
-    }
-
-    /**
-     * @return your priority
-     */
-
-    public int getPriority() {
-        return this.priority;
-    }
-
-    /**
-     * @return the count of current threads
-     */
-
-    public int getCount() {
-        return this.count.get();
-    }
+  /** @return the count of current threads */
+  public int getCount() {
+    return this.count.get();
+  }
 }

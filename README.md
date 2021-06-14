@@ -2,7 +2,7 @@
 <div align="center">
   <h2>An simple job system based of ScheduledThreadPoolExecutor</h2>
   <hr />
-  <a href="https://gitlab.zyonicsoftware.com/mint9976/redeugene/-/packages"><img src="https://img.shields.io/badge/release-v0.2.4-9cf" /></a>
+  <a href="https://gitlab.zyonicsoftware.com/mint9976/redeugene/-/packages"><img src="https://img.shields.io/badge/release-v0.2.5-9cf" /></a>
   <a href="https://github.com/mintUI9976/RedEugene"><img src="https://img.shields.io/github/languages/code-size/mintUI9976/RedEugene?color=orange" /></a>
   <a href="https://github.com/mintUI9976/RedEugene"><img src="https://img.shields.io/tokei/lines/github/mintUI9976/RedEugene?color=yellow" /></a>
   <a href="https://github.com/mintUI9976/RedEugene/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mintUI9976/RedEugene" /></a>

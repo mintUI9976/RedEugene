@@ -18,18 +18,13 @@ import java.util.concurrent.ThreadFactory;
  * @see java.util.concurrent.ScheduledThreadPoolExecutor
  * @see java.util.concurrent.ThreadPoolExecutor
  */
-
 public class RedThreadPool extends ScheduledThreadPoolExecutor {
 
-
-    /**
-     * @param corePoolSize  the size of the pool
-     * @param threadFactory the custom thread factory
-     *                      create a custom reference of the original
-     */
-
-    public RedThreadPool(final int corePoolSize, final ThreadFactory threadFactory) {
-        super(corePoolSize, threadFactory);
-    }
-
+  /**
+   * @param corePoolSize the size of the pool
+   * @param threadFactory the custom thread factory create a custom reference of the original
+   */
+  public RedThreadPool(final int corePoolSize, final ThreadFactory threadFactory) {
+    super(corePoolSize, threadFactory);
+  }
 }
