@@ -7,7 +7,7 @@ plugins {
 apply plugin: 'maven'
 
 group 'com.zyonicsoftware.minereaper.redeugene'
-version 'v0.2.5'
+version 'v0.2.6'
 
 repositories {
     mavenCentral()

@@ -108,6 +108,11 @@ public class EugeneJob {
     return this.eugeneRunnableState;
   }
 
+  /** @return the current pool of the job as name */
+  public String getThreadWorkingPool() {
+    return this.lastWorkThread.split("-")[0];
+  }
+
   /** @return a custom toString method */
   @Override
   public String toString() {

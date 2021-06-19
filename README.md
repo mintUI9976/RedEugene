@@ -2,13 +2,13 @@
 <div align="center">
   <h2>An simple job system based of ScheduledThreadPoolExecutor</h2>
   <hr />
-  <a href="https://gitlab.zyonicsoftware.com/mint9976/redeugene/-/packages"><img src="https://img.shields.io/badge/release-v0.2.5-9cf" /></a>
+  <a href="https://gitlab.zyonicsoftware.com/mint9976/redeugene/-/packages"><img src="https://img.shields.io/badge/release-v0.2.6-9cf" /></a>
   <a href="https://github.com/mintUI9976/RedEugene"><img src="https://img.shields.io/github/languages/code-size/mintUI9976/RedEugene?color=orange" /></a>
   <a href="https://github.com/mintUI9976/RedEugene"><img src="https://img.shields.io/tokei/lines/github/mintUI9976/RedEugene?color=yellow" /></a>
   <a href="https://github.com/mintUI9976/RedEugene/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mintUI9976/RedEugene" /></a>
   <a href="https://github.com/mintUI9976/RedEugene/stargazers"><img src="https://img.shields.io/github/stars/mintUI9976/RedEugene?color=ff69b4" /></a>
   <a href=""><img src="https://img.shields.io/github/languages/count/mintUI9976/RedEugene?color=blueviolet" /></a>
-  <a href="https://discord.gg/vFVk4TmNQC"><img src="https://img.shields.io/discord/743171495454441503?label=discord&color=cyan" /></a>
+  <img src="https://img.shields.io/discord/743171495454441503?label=discord&color=cyan" />
   <img src="https://img.shields.io/badge/opensource-❤-9cf">
   <br />
   <br />
@@ -23,63 +23,56 @@
   <a href="https://github.com/Zyonic-Software">Github</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
   <a href="https://twitter.com/zyonicsoftware">Twitter</a>
-  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-  <a href="https://discord.gg/vFVk4TmNQC">Discord</a>
   <br />
   <hr />
 </div>
 <div align="left">
-<h4>Support and Project Discussion:</h4>
-</div>
-
-[![Loading-Discord](https://seeklogo.com/images/D/discord-logo-855AEC93F1-seeklogo.com.png "https://discord.gg/vFVk4TmNQC")](https://discord.gg/vFVk4TmNQC)
-
-<hr />
-<div align="left">
 <h4>Dependencies & Repository:</h4>
 <h5>Maven:</h5>
 
-````java
+````xml
+
 <repositories>
-<repository>
-<id>gitlab-maven</id>
-<url>https://gitlab.zyonicsoftware.com/api/v4/projects/164/packages/maven</url>
-</repository>
+    <repository>
+        <id>gitlab-maven</id>
+        <url>https://gitlab.zyonicsoftware.com/api/v4/projects/164/packages/maven</url>
+    </repository>
 </repositories>
 
 <distributionManagement>
 <repository>
-<id>gitlab-maven</id>
-<url>https://gitlab.zyonicsoftware.com/api/v4/projects/164/packages/maven</url>
+    <id>gitlab-maven</id>
+    <url>https://gitlab.zyonicsoftware.com/api/v4/projects/164/packages/maven</url>
 </repository>
 
 <snapshotRepository>
-<id>gitlab-maven</id>
-<url>https://gitlab.zyonicsoftware.com/api/v4/projects/164/packages/maven</url>
+    <id>gitlab-maven</id>
+    <url>https://gitlab.zyonicsoftware.com/api/v4/projects/164/packages/maven</url>
 </snapshotRepository>
 </distributionManagement>
 ````
 
-````java
-mvn dependency:get-Dartifact=com.zyonicsoftware.minereaper.redeugene:redeugene:v0.2.4
+````xml
+mvn dependency:get-Dartifact=com.zyonicsoftware.minereaper.redeugene:redeugene:v0.2.6
 ````
 
-````java
+````xml
+
 <dependency>
-<groupId>com.zyonicsoftware.minereaper.redeugene</groupId>
-<artifactId>redeugene</artifactId>
-<version>v0.2.4</version>
+    <groupId>com.zyonicsoftware.minereaper.redeugene</groupId>
+    <artifactId>redeugene</artifactId>
+    <version>v0.2.6</version>
 </dependency>
 ````
 
 <h5>Gradle:</h5>
 
-````java
+````xml
 maven{url'https://gitlab.zyonicsoftware.com/api/v4/projects/164/packages/maven'}
 ````
 
-````java
-implementation'com.zyonicsoftware.minereaper.redeugene:redeugene:v0.2.4'
+````xml
+implementation'com.zyonicsoftware.minereaper.redeugene:redeugene:v0.2.6'
 ````
 
 <hr />
