@@ -23,10 +23,8 @@ public class RedEugene {
   /**
    * @param eugeneFactoryName used to create a new thread with your custom name
    * @param coreSize used to specify the size of the thread pool
-   * @param daemon read the wiki for more information ->
-   *     "https://gitlab.zyonicsoftware.com/mint9976/redeugene/-/wikis/What-is-an-Daemon-thread-in-Java%3F"
-   * @param eugeneFactoryPriority read the wiki for more information ->
-   *     "https://gitlab.zyonicsoftware.com/mint9976/redeugene/-/wikis/What-is-thread-priority-in-Java%3F"
+   * @param daemon read the <a href="https://github.com/mintUI9976/RedEugene/wiki/What-is-an-Daemon-thread-in-Java%3F">wiki</a> for more information
+   * @param eugeneFactoryPriority read the <a href="https://github.com/mintUI9976/RedEugene/wiki/What-is-thread-priority-in-Java%3F">wiki</a> for more information
    */
   public RedEugene(
       @NotNull final String eugeneFactoryName,
