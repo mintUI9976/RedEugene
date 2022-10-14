@@ -20,56 +20,6 @@
   <hr />
 </div>
 <div align="left">
-<h4>Dependencies & Repository:</h4>
-<h5>Maven:</h5>
-
-````xml
-
-<repositories>
-    <repository>
-        <id>gitlab-maven</id>
-        <url>https://gitlab.zyonicsoftware.com/api/v4/projects/164/packages/maven</url>
-    </repository>
-</repositories>
-
-<distributionManagement>
-<repository>
-    <id>gitlab-maven</id>
-    <url>https://gitlab.zyonicsoftware.com/api/v4/projects/164/packages/maven</url>
-</repository>
-
-<snapshotRepository>
-    <id>gitlab-maven</id>
-    <url>https://gitlab.zyonicsoftware.com/api/v4/projects/164/packages/maven</url>
-</snapshotRepository>
-</distributionManagement>
-````
-
-````xml
-mvn dependency:get-Dartifact=com.zyonicsoftware.minereaper.redeugene:redeugene:v0.2.6
-````
-
-````xml
-
-<dependency>
-    <groupId>com.zyonicsoftware.minereaper.redeugene</groupId>
-    <artifactId>redeugene</artifactId>
-    <version>v0.2.6</version>
-</dependency>
-````
-
-<h5>Gradle:</h5>
-
-````xml
-maven{url'https://gitlab.zyonicsoftware.com/api/v4/projects/164/packages/maven'}
-````
-
-````xml
-implementation'com.zyonicsoftware.minereaper.redeugene:redeugene:v0.2.6'
-````
-
-<hr />
-
 <h4>Project-Prerequisites:</h4>
 
 ``JDK 11 or above``
