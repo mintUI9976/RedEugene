@@ -2,6 +2,7 @@
 <div align="center">
   <h2>An simple job system based of ScheduledThreadPoolExecutor</h2>
   <hr />
+  <a href="https://jitpack.io/#mintUI9976/RedEugene"><img src="https://jitpack.io/v/mintUI9976/RedEugene.svg" /></a>
   <a href="https://github.com/mintUI9976/RedEugene"><img src="https://img.shields.io/github/languages/code-size/mintUI9976/RedEugene?color=orange" /></a>
   <a href="https://github.com/mintUI9976/RedEugene"><img src="https://img.shields.io/tokei/lines/github/mintUI9976/RedEugene?color=yellow" /></a>
   <a href="https://github.com/mintUI9976/RedEugene/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mintUI9976/RedEugene" /></a>
