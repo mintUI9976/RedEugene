@@ -128,7 +128,7 @@ public class RedEugeneIntroduction {
    * @return if it worked
    */
   public boolean forceCancelEugeneJob(@NotNull final String eugeneJobName) {
-    if (RedEugeneCache.getLive(eugeneJobName).isEmpty()) {
+    if (!RedEugeneCache.getLive(eugeneJobName).isPresent()) {
       return false;
     }
     final Optional<EugeneJob> optionalEugeneJob = RedEugeneCache.getLive(eugeneJobName);
