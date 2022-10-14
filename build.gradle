@@ -1,9 +1,8 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 plugins {
     id 'java'
-    id 'maven'
 }
-
-apply plugin: 'maven'
 
 group 'com.zyonicsoftware.minereaper.redeugene'
 version 'v0.2.9'
@@ -13,10 +12,26 @@ repositories {
 }
 
 dependencies {
-    compile group: 'org.jetbrains', name: 'annotations', version: '21.0.1'
+    implementation group: 'org.jetbrains', name: 'annotations', version: '21.0.1'
 }
 
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        filter ReplaceTokens, tokens: [version: version]
+    }
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
+
 jar {
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    exclude("META-INF/*.SF", "META-INF/*.DSA", "META-INF/*.RSA")
+}
+
+/*jar {
     from sourceSets.main.allSource
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
@@ -24,4 +39,4 @@ jar {
     processResources {
         exclude("*")
     }
-}
+}*/
