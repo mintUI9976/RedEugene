@@ -1,28 +1,20 @@
-[![Loading-RedEugene](https://image.sv-studios.net/88ba04b95d70d27e5c570c8ad54c89838.png "https://gitlab.zyonicsoftware.com")](https://gitlab.zyonicsoftware.com)
+![Loading-RedEugene](72671700-d94d-11eb-91e8-56425f19f798.png)
 <div align="center">
   <h2>An simple job system based of ScheduledThreadPoolExecutor</h2>
   <hr />
-  <a href="https://gitlab.zyonicsoftware.com/mint9976/redeugene/-/packages"><img src="https://img.shields.io/badge/release-v0.2.6-9cf" /></a>
   <a href="https://github.com/mintUI9976/RedEugene"><img src="https://img.shields.io/github/languages/code-size/mintUI9976/RedEugene?color=orange" /></a>
   <a href="https://github.com/mintUI9976/RedEugene"><img src="https://img.shields.io/tokei/lines/github/mintUI9976/RedEugene?color=yellow" /></a>
   <a href="https://github.com/mintUI9976/RedEugene/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mintUI9976/RedEugene" /></a>
   <a href="https://github.com/mintUI9976/RedEugene/stargazers"><img src="https://img.shields.io/github/stars/mintUI9976/RedEugene?color=ff69b4" /></a>
   <a href=""><img src="https://img.shields.io/github/languages/count/mintUI9976/RedEugene?color=blueviolet" /></a>
-  <img src="https://img.shields.io/discord/743171495454441503?label=discord&color=cyan" />
   <img src="https://img.shields.io/badge/opensource-❤-9cf">
   <br />
   <br />
-  <a href="https://zyonicsoftware.com">Website</a>
-  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
   <a href="https://github.com/mintUI9976/RedEugene/wiki">Wiki</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
   <a href="https://github.com/mintUI9976/RedEugene/blob/master/LICENSE">License</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-  <a href="https://gitlab.zyonicsoftware.com">Gitlab</a>
-  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
   <a href="https://github.com/Zyonic-Software">Github</a>
-  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-  <a href="https://twitter.com/zyonicsoftware">Twitter</a>
   <br />
   <hr />
 </div>
